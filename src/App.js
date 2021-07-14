@@ -6,6 +6,7 @@ import Footer from './components/footer'
 
 import styled, { createGlobalStyle } from 'styled-components'
 import Section from './components/section'
+import AppProvider from './context/provider'
 
 function App() {
   const colors = {
@@ -62,17 +63,17 @@ function App() {
 `;
 
   return (
-    <>
+    <AppProvider>
       <GlobalStyle/>
       <Header colors={colors} Button={Button} ButtonOutlined={ButtonOutlined}></Header>
       <main style={{overflowX: 'hidden'}}>
         <IllustrationAndTitles colors={colors} Button={Button}></IllustrationAndTitles>
         <Input Button={Button} colors={colors}></Input>
-        <Statistics colors={colors}></Statistics>
+        <Statistics colors={colors} Button={Button}></Statistics>
         <Section Button={Button} colors={colors}></Section>
         <Footer colors={colors}></Footer>
       </main>
-    </>
+    </AppProvider>
   );
 }
 

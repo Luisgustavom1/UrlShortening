@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import AppContext from '../context/context'
 
@@ -15,6 +15,7 @@ const UrlsCard = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: .6rem 1.3rem;
+    margin-bottom: 1rem;
     p{
         font-size: .8rem;
         font-weight: 500;
@@ -23,23 +24,35 @@ const UrlsCard = styled.div`
         width: 6rem;
         border-radius: 8px;
     }
-    button.active{
+    button.copied{
         background-color: ${props => props.colors.DarkViolet}            
     }
 `
 const NewUrl = styled.p`
-    margin-left: 12rem;
+    position: absolute;
+    right: 25%; 
     color: ${props => props.colors.Cyan}
 `
 export default function Urls(props){
     const {urlShorten} = useContext(AppContext)
+    function copyUrl(e){
+        const buttons = document.querySelectorAll('.newUrlBtn')
+        for(var c = 0; c < document.querySelectorAll('.newUrlBtn').length; c++){
+            if(buttons[c].value == e.target.attributes[0].value){
+                buttons[c].classList.add('copied')
+                buttons[c].innerHTML = 'Copied!'
+            }
+        }
+    }
     return(
         <BoxUrls>
-            <UrlsCard colors={props.colors}>
-                <p>{urlShorten !== null && urlShorten.result.original_link}</p>
-                <NewUrl colors={props.colors}>{urlShorten !== null && urlShorten.result.full_short_link}</NewUrl>
-                <props.Button>Copy</props.Button>
-            </UrlsCard>
+            {urlShorten !== null ? urlShorten.map((urlShorten) => {
+                return <UrlsCard colors={props.colors}>
+                            <p>{urlShorten.original_link}</p>
+                            <NewUrl colors={props.colors}>{urlShorten.full_short_link}</NewUrl>
+                            <props.Button value={urlShorten.code} key={urlShorten.code} className='newUrlBtn' onClick={(e) => copyUrl(e)}>Copy</props.Button>
+                        </UrlsCard>
+            }) : ''}
         </BoxUrls>
     )
 }

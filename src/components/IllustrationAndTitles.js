@@ -31,14 +31,13 @@ export default function IllustrationAndTitles(props){
     const DivImg = styled.div`
         position: relative;
         right: -8%;
-
     `
     return(
         <DivIllustration>
             <DivTitles>
                 <h1>More than just shorter links</h1>
                 <p>Build your brand's recognition and get detailed insights on how your links are performing</p>
-                <props.Button className='btn'>Get Started</props.Button>
+                <props.Button className='btn' href='/input'>Get Started</props.Button>
             </DivTitles>
             <DivImg> <img src={Illustration} alt='Imagem da ilustração'></img></DivImg>
         </DivIllustration>

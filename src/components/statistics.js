@@ -7,90 +7,95 @@ import Urls from '../components/Urls'
 
 import styled from 'styled-components'
 
-export default function Statistics(props){
-    const BgMain = styled.main`
-        background-color: hsl(0, 0%, 95%);    
-    `
-    const Div = styled.div`
-        padding: 6rem 0;
-        color: ${props.colors.VeryDarkBlue};
-        text-align: center;
-            p{
-                width: 30rem;
-                margin: 1rem auto 4rem auto;
-                color: ${props.colors.GrayishViolet}
-            }
-    `
-    const Section = styled.section`
-        display: flex;
-        justify-content: space-around;
-        width: 70%;
-        margin: 0 auto;
-    `
-    const BgImg = styled.div`
-        background-color: ${props.colors.DarkViolet};
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -13%;
-        left: 8%;
-        img{
-            width: 35px;
-            height: 35px;
+const BgMain = styled.main`
+    background-color: hsl(0, 0%, 95%);    
+    padding-top: 60px;
+    margin-top: 90px;
+`
+const Div = styled.div`
+    padding: 6rem 0;
+    color: ${props => props.colors.VeryDarkBlue};
+    text-align: center;
+        p{
+            width: 30rem;
+            margin: 1rem auto 4rem auto;
+            color: ${props => props.colors.GrayishViolet}
         }
-    `
-    const Cards = styled.div`
-        background-color: white;
-        border-radius: 8px;
-        width: 18rem;
-        height: 14rem;
+`
+const Section = styled.section`
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+`
+const BgImg = styled.div`
+    background-color: ${props => props.colors.DarkViolet};
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -13%;
+    left: 8%;
+    img{
+        width: 35px;
+        height: 35px;
+    }
+`
+const Cards = styled.div`
+    background-color: white;
+    border-radius: 8px;
+    width: 18rem;
+    height: 14rem;
+    text-align: left;
+    div{
         text-align: left;
-        div{
-            text-align: left;
-            padding: 0 1.5rem;
-            h1{
-                font-size: 1.3rem;
-            }
-            p{
-                width: 100%;
-                font-size: .8rem;
-                font-weight: 500;
-            }
+        padding: 0 1.5rem;
+        h1{
+            font-size: 1.3rem;
         }
-    `
-    const Span = styled.span`
-        content: ' '; 
-        background-color: ${props.colors.Cyan};       
-    `
+        p{
+            width: 100%;
+            font-size: .8rem;
+            font-weight: 500;
+        }
+    }
+`
+const Span = styled.span`
+    content: ' '; 
+    margin-top: 10rem;
+    width: 1.8rem;
+    float: center;
+    height: .4rem;
+    background-color: ${props => props.colors.Cyan};       
+`
+export default function Statistics(props){
     return(
         <BgMain>
             <Urls colors={props.colors} Button={props.Button}></Urls>
-            <Div>
+            <Div colors={props.colors}>
                 <h1>Advanced Statistics</h1>
                 <p>Track how your links performing across the web with our advanced statistics dashboard</p>
                 <Section>
                     <Cards style={{marginTop: '2rem'}}>
-                        <BgImg><img src={iconBrand} alt='Icon Brand Recognition'></img></BgImg>
+                        <BgImg colors={props.colors}><img src={iconBrand} alt='Icon Brand Recognition'></img></BgImg>
                         <div>
                             <h1>Brand Recognition</h1>
                             <p>Boot your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content</p>
                         </div>
                     </Cards>
-                    <Span></Span>
+                    <Span colors={props.colors}></Span>
                     <Cards style={{marginTop: '4rem'}}>
-                        <BgImg><img src={iconDetailed} alt='Icon Deitaled'></img></BgImg>
+                        <BgImg colors={props.colors}><img src={iconDetailed} alt='Icon Deitaled'></img></BgImg>
                         <div>
                             <h1>Deitaled Records</h1>
                             <p>Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions</p>
                         </div>
                     </Cards>
-                    <Span></Span>
+                    <Span colors={props.colors}></Span>
                     <Cards style={{marginTop: '6rem'}}>
-                        <BgImg><img src={iconCustomizable} alt='Icon Brand Recognition'></img></BgImg>
+                        <BgImg colors={props.colors}><img src={iconCustomizable} alt='Icon Brand Recognition'></img></BgImg>
                         <div>
                             <h1>Brand Recognition</h1>
                             <p>Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.</p>

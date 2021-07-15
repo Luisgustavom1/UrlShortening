@@ -1,6 +1,6 @@
 # Frontend Mentor - Shortly URL shortening API Challenge
 
-![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)
+![desktop-preview](https://user-images.githubusercontent.com/65229051/125860781-9cbe543b-f09a-4cfb-b0d5-6ee34a2f7964.jpg)
 
 ## Welcome! 👋
 
